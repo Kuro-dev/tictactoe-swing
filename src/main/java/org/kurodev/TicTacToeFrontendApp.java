@@ -58,7 +58,9 @@ public class TicTacToeFrontendApp {
             Thread t = new Thread(() -> {
                 System.out.println("Playing with a friend!");
                 player2 = new SwingPlayer(this::awaitPlayerMove);
+                //TODO dont replace existing game instance, can mess up score tally later on when theres multiple different kinds of players
                 game = new TicTacToeGame(player1, player2);
+                //TODO figure out who starts
                 game.start();
                 if (game.getWinner() == player1) {
                     player1Wins++;
